@@ -159,7 +159,11 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
   private updateEntry() {
     const entry: Entry = Object.assign(new Entry(), this.entryForm.value);
     this.entryService.update(entry).subscribe(
-      entry => this.actionsForSuccess(entry),
+      entry => {
+        const category = this.categories.filter(category => category.id == entry.categoryId)[0];
+        entry.category = category;
+        this.actionsForSuccess(entry);
+      },
       error => this.actionsForError(error),
     );
   }
