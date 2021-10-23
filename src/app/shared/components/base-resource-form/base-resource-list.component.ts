@@ -1,9 +1,9 @@
 import { BaseResourceModel } from 'src/app/shared/models/base-resource.model';
 import { BaseResourceService } from 'src/app/shared/services/base-resource.service';
-import { Component, Injector, OnInit } from '@angular/core';
+import { OnInit } from '@angular/core';
 
 export abstract class BaseResourceListComponent<T extends BaseResourceModel> implements OnInit {
-  constructor(injector: Injector, protected resourceService: BaseResourceService<T>) {}
+  constructor(protected resourceService: BaseResourceService<T>) {}
   resources: T[];
 
   ngOnInit() {
