@@ -21,8 +21,8 @@ export abstract class BaseResourceService<T extends BaseResourceModel> {
     return this.http.get(url).pipe(catchError(this.handleError), map(this.jsonDataToResource));
   }
 
-  create(catgory: T): Observable<T> {
-    return this.http.post(this.apiPath, catgory).pipe(catchError(this.handleError), map(this.jsonDataToResource));
+  create(resource: T): Observable<T> {
+    return this.http.post(this.apiPath, resource).pipe(catchError(this.handleError), map(this.jsonDataToResource));
   }
 
   update(resource: T): Observable<T> {
